@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PXN39MKZYW"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PXN39MKZYW');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open source is awesome - Matteo Di Mario</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        .site-title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .site-title a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .site-title a:hover {
+            text-decoration: underline;
+        }
+
+        .intro {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        nav {
+            margin-bottom: 40px;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #000;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #666;
+        }
+
+        .post-article {
+            margin-top: 40px;
+        }
+
+        .post-title {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .post-meta {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 30px;
+        }
+
+        .post-meta a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .post-meta a:hover {
+            text-decoration: underline;
+        }
+
+        .post-content {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #444;
+        }
+
+        .post-content p {
+            margin-bottom: 15px;
+        }
+
+        .post-content h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 25px 0 10px 0;
+            line-height: 1.3;
+        }
+
+        .post-content a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .post-content a:hover {
+            text-decoration: underline;
+        }
+
+        .post-content blockquote {
+            border-left: 3px solid #eee;
+            margin: 20px 0;
+            padding-left: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        .post-content code {
+            background-color: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+        }
+
+        .post-content pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+
+        .post-content pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .back-link {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .back-link a {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+
+        .comments-section {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .comments-title {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .comment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+        }
+
+        .form-group button {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .form-group button:hover {
+            background-color: #0052a3;
+        }
+
+        .form-message {
+            padding: 10px 12px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .form-message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+
+        .form-message.error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #f8bbd0;
+        }
+
+        .comments-list {
+            margin-top: 30px;
+        }
+
+        .comment {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .comment:last-child {
+            border-bottom: none;
+        }
+
+        .comment-author {
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .comment-author a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .comment-author a:hover {
+            text-decoration: underline;
+        }
+
+        .comment-meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+
+        .comment-text {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .no-comments {
+            color: #999;
+            font-size: 14px;
+            padding: 20px 0;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 13px;
+            color: #999;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+
+            .site-title {
+                font-size: 24px;
+            }
+
+            .post-title {
+                font-size: 22px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .wrapper {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <article class="post-article">
+            <div class="back-link">
+                <a href="/">← Back</a>
+            </div>
+
+            <h1 class="post-title">Open source is awesome</h1>
+            <div class="post-meta"><a href="/">&lt;matteodimario&gt;</a> · March 1, 2026</div>
+
+            <div class="post-content">
+<h3>But programming is so cool</h3>
+<p>You know when you find something and you can't quite explain what it is but you just enjoy it. You know when somebody asks you what you enjoy about it, and you have an answer that seems so clear in your head and as soon as it comes out it becomes "ehm" and "like" usually ending with "but it's so cool". For some people it's some sports, for some people is cooking for other people is programming.<br />
+My "but it's so cool" moment for programming came around four years ago. It was awesome, for almost two years. And then came AI, which made me lose the fun I had developed for programming, as it just seemed to become some commoditized thing you can just outsource. I am not implying that I think that programming is dead, or that AI will replace programming or anything like that, because I know nothing about any of that. I am just saying that at that time my interest for programming faded substantially because I could now ask AI to write code that was already better than the code I could ever produce given I was (and still am) a mediocre programmer.<br />
+So I abandoned my devotion to the art (what I was doing was certainly not art) of programming. But then slowly like a little magnet I kept getting back to it for various things. It was mostly to build things for myself, and make things a bit more efficient in my day-to-day since I had nothing to contribute to the outside world.<br />
+And then one crazy day a few months ago the bomb fell, and I really saw it. I really saw how today's proprietary and for-profit software is broken without a way back. Using Microsoft which I had defended for years had become a nightmare, Google was showing me more ads than on the buildings in the streets, and all those so-called social media apps (which have nothing social anymore) kept feeding me an algorithm that I could not control and felt so alienated by.<br />
+But before that, while the experience had kept degrading, I could see no way out. I kept thinking that if these big corporations could not make my experience better there was nothing I could do. I certainly did not have the technical skills to make this better or spend more money for some more shiny software (which spoiler would not have fixed anything anyways).<br />
+Now come to two months ago and you get a crazy story. I decide to finally get a new machine: a mini pc. You might think: oh you wanted to try some other alternatives, but no no no... I just wanted to try what the hype of openclaw was all about. So I bought the new mini pc, and just because it doesn't have a lot of RAM or CPU power I installed Linux on it, so that it would be lighter to run and I could see what Openclaw (at the time still called Clawdbot) could do.<br />
+And no surprise I was not so impressed. I had tried stuff like opencode before and it felt like the same thing with telegram incorporated, but slower (this post is not about openclaw just to be clear). So the money of a mini pc being wasted? Not at all because I had found my new "but it's so cool" moment but I didn't know it yet... This time it was with the open source movement. I had installed Linux for completely different reasons but while I was on it I was trying to make the experience suck a little bit less than Windows did, since it felt I could customize more things. How mistaken I was, it was not that I could customize more than Windows, it was that I could customize literally everything, and the way I wanted - not the way some guy in Seattle wanted who usually thought I was so dumb that I should be guided through some click, click, click GUI that half the time doesn't even apply the changesi (this post is not about Microst just to be clear - just covering my bases). How liberating!  </p>
+<h3>But open source is so cool</h3>
+<p>So I started doing some tinkering, thinking after a few hours I would have a set-up and move on - maybe to give another try at Openclaw. But after a few hours I had discovered even cooler things (some that I didn't even know what they were called before) could be customized. And so I did.<br />
+I started with i3 - which finally felt like a GUI that could actually do what I asked. No more alt-tab nightmares searching for tabs that were randomly placed, but some predictable and configurable workspaces that I could navigate with a configurable keyboard shortcut. And that was just the start. I then spent the longest time finding the right browser - finally settling on the beautiful qutebrowser which finally made me find the fun in navigating slow horribly made UIs again. Then tmux, ssh, htop and so many config navigations. And finally the prettiest of all: neovim. It was so much fun!
+Now a clarification is due: not all of these were new to me. I had encountered some of these before, but always in a transactional way. This time around, with the power that was being invested to me by a linux OS, I had actually understood them more. Now I could play with them, I could break them, and re-make them. With some AI help I could even re-make them in minutes if my programming skills fell short. It is not an understatement that I had not had so much fun in years! It was awesome! Open source was awesome!
+That's when it hit me. There was a thread about all this that I had missed all the time before. The fun was not in the application themselves, the fun was in going through the meticulous documentation looking for the line that would allow me to change what I wanted because some kind fellow (I hope) programmer had been nice enough to not only write the program, but also share it with others along with the methods to use it. So many things were coming together, like very few other times before, and I could not just let this go, which is why I did something I usually don't do. You see, as a generally introverted person sharing with the void is scary, but for one of the first time in my life I not only felt the will, but I felt the obligation to share, in the hope that others can find the joy that open source has given me in these two months. 
+So much so that I created a website and posted this. I had floated the idea of posting something before but nothing felt interesting enough to share, but it feels like this is time. 
+I wanted to thank all the people that contribute to open source, and that contribute to make this world a better place. Open source is something that in a capitalistic society should not exist, but it's something that was born because people are amazing, and nothing can stop a bazar (got it? I did my research) of them coming together for something they enjoy and want to share with others.</p>
+<h3>What now?</h3>
+<p>I would like to be part of this contribution because after a long time searching I deem this to be a great way to do something valuable to the world. Because if one line of code can make someone a little bit less mad about technology, it will be worth it. However, I don't have the skills to make any meaningful contribution at the moment which is what brings me to the next step. I want to try something: for the next year I want to do a deep dive in a repository every two weeks. I want to spend most of my free time every two weeks to navigate a repository, learn about the project, see its applications and why it matters, and then report back. The purpose? I don't know, probably just have fun, and maybe learn a little bit. 
+If anyone is reading this, thank you, you are really appreciated and I hope you can find the beauty of open source if you haven't already.</p>
+<p>PS: I understand all of this is a bit naive. Open source has its flaws, issues, and limitations. But that's ok. I am not implying that it doesn't, or that I haven't found out about them, or will not find more, but I am just trying to document the excitement that I have had in the past month, because I have rarely had such raw excitement for something before.</p>
+</article>
+
+        <!-- <section class="comments-section"> -->
+        <!--     <h2 class="comments-title">Comments</h2> -->
+        <!---->
+        <!--     <div class="comment-form"> -->
+        <!--         <div id="formMessage"></div> -->
+        <!--         <form id="commentForm"> -->
+        <!--             <div class="form-group"> -->
+        <!--                 <label for="author">Your name *</label> -->
+        <!--                 <input type="text" id="author" name="author" required placeholder="Your name"> -->
+        <!--             </div> -->
+        <!--             <div class="form-group"> -->
+        <!--                 <label for="email">Email (not published) *</label> -->
+        <!--                 <input type="email" id="email" name="email" required placeholder="your@email.com"> -->
+        <!--             </div> -->
+        <!--                   <div class="form-group"> -->
+        <!--                 <label for="text">Comment *</label> -->
+        <!--                 <textarea id="text" name="text" required placeholder="Your comment..."></textarea> -->
+        <!--             </div> -->
+        <!--             <div class="form-group"> -->
+        <!--                 <button type="submit">Post Comment</button> -->
+        <!--             </div> -->
+        <!--         </form> -->
+        <!--     </div> -->
+        <!---->
+            <!-- <div class="comments-list" id="commentsList"> -->
+            <!--     <div class="no-comments">No comments yet. Be the first to comment!</div> -->
+            <!-- </div> -->
+        <!-- </section> -->
+    </div>
+
+    <!-- <script> -->
+    <!--     const POST_ID = 'open_source_is_awesome'; -->
+    <!---->
+    <!--     // Load comments on page load -->
+    <!--     document.addEventListener('DOMContentLoaded', loadComments); -->
+    <!---->
+    <!--     // Handle form submission -->
+    <!--     document.getElementById('commentForm').addEventListener('submit', async (e) => { -->
+    <!--         e.preventDefault(); -->
+    <!---->
+    <!--         const author = document.getElementById('author').value; -->
+    <!--         const email = document.getElementById('email').value; -->
+    <!--         const website = document.getElementById('website').value; -->
+    <!--         const text = document.getElementById('text').value; -->
+    <!--         const messageDiv = document.getElementById('formMessage'); -->
+    <!---->
+    <!--         try { -->
+    <!--             const response = await fetch('/api/comments', { -->
+    <!--                 method: 'POST', -->
+    <!--                 headers: { -->
+    <!--                     'Content-Type': 'application/json', -->
+    <!--                 }, -->
+    <!--                 body: JSON.stringify({ -->
+    <!--                     post_id: POST_ID, -->
+    <!--                     author, -->
+    <!--                     email, -->
+    <!--                     website: website || null, -->
+    <!--                     text -->
+    <!--                 }) -->
+    <!--             }); -->
+    <!---->
+    <!--             if (response.ok) { -->
+    <!--                 messageDiv.innerHTML = '<div class="form-message success">Comment posted successfully!</div>'; -->
+    <!--                 document.getElementById('commentForm').reset(); -->
+    <!--                 setTimeout(() => { -->
+    <!--                     messageDiv.innerHTML = ''; -->
+    <!--                     loadComments(); -->
+    <!--                 }, 1500); -->
+    <!--             } else { -->
+    <!--                 const error = await response.text(); -->
+    <!--                 messageDiv.innerHTML = `<div class="form-message error">Error: ${error}</div>`; -->
+    <!--             } -->
+    <!--         } catch (error) { -->
+    <!--             messageDiv.innerHTML = `<div class="form-message error">Error posting comment: ${error.message}</div>`; -->
+    <!--         } -->
+    <!--     }); -->
+    <!---->
+    <!--     // Load and display comments -->
+    <!--     async function loadComments() { -->
+    <!--         try { -->
+    <!--             const response = await fetch(`/api/comments?post=${POST_ID}`); -->
+    <!--             const comments = await response.json(); -->
+    <!---->
+    <!--             const commentsList = document.getElementById('commentsList'); -->
+    <!---->
+    <!--             if (comments.length === 0) { -->
+    <!--                 commentsList.innerHTML = '<div class="no-comments">No comments yet. Be the first to comment!</div>'; -->
+    <!--                 return; -->
+    <!--             } -->
+    <!---->
+    <!--             commentsList.innerHTML = comments.map(comment => ` -->
+    <!--                 <div class="comment"> -->
+    <!--                     <div class="comment-author"> -->
+    <!--                         ${comment.website ? `<a href="${escapeHtml(comment.website)}" target="_blank">${escapeHtml(comment.author)}</a>` : escapeHtml(comment.author)} -->
+    <!--                     </div> -->
+    <!--                     <div class="comment-meta">${comment.time_formatted}</div> -->
+    <!--                     <div class="comment-text">${escapeHtml(comment.text).replace(/\n/g, '<br>')}</div> -->
+    <!--                 </div> -->
+    <!--             `).join(''); -->
+    <!--         } catch (error) { -->
+    <!--             console.error('Error loading comments:', error); -->
+    <!--         } -->
+    <!--     } -->
+    <!---->
+    <!--     // Auto-refresh comments every 30 seconds -->
+    <!--     setInterval(loadComments, 30000); -->
+    <!---->
+    <!--     // Helper function to escape HTML -->
+    <!--     function escapeHtml(text) { -->
+    <!--         const div = document.createElement('div'); -->
+    <!--         div.textContent = text; -->
+    <!--         return div.innerHTML; -->
+    <!--     } -->
+    <!-- </script> -->
+</body>
+</html>

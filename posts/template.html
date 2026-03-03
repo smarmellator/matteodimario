@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Per i fan di Boris - Matteo Di Mario</title>
+    <title></title>
     <style>
         * {
             margin: 0;
@@ -354,159 +354,133 @@
 <body>
     <div class="wrapper">
         <article class="post-article">
-            <h1 class="post-title">Per i fan di Boris</h1>
+            <div class="back-link">
+                <a href="/">← Back</a>
+            </div>
+
+            <h1 class="post-title"></h1>
             <div class="post-meta">
-                <a href="/">Matteo Di Mario</a> · January 24, 2026
+                <a href="/">&lt;matteodimario&gt;</a> · {date}
             </div>
 
             <div class="post-content">
                 <p>
-                    Italo Calvino scrisse in Perché leggere i classici che un suo amico parlava attraverso citazioni 
-                    di un grande classico di C. Dickens come The Pickwick Papers. Lo aveva letto così tante volte e gli 
-                    aveva insegnato così tanto che ormai parlava attraverso le sue parole.
-                    Così mi sento io con Boris, una delle poche serie TV italiane che irrompono i confini nazionali per 
-                    raccontare una storia ben più universale di quello che sembra a prima vista.
-                    Per questo voglio trattare questo post come un piccolo ricordo per la serie, con le sue citazioni, 
-                    situazioni, e personaggi, perché con Boris ho imparato che si può raccontare quasi tutto della condizione umana.
-                    Partiamo dal glossario:
-                    A cazzo di cane:
-                    Smarmella tutto: 
-                    Chiudo tutto?
-                    Dai Dai Dai:
-                    Perché a noi la qualita ci ha rotto il cazzo
-                    La linea comica:
-                    Troppo italiano:
-                    F4 Basito:
-                    Questa è l'Italia del futuro un paese di musichette, mentre fuori c'è la morte
-                    Questa è tutta SIAE
-                    Genio:
-                    Platinette:
-                    Locura:
-                    Di seguito aggiungo la mia traduzione in inglese preferita per chi si trova a dover esprimere
-                    queste situazioni nella sua lingua non madre.
                 </p>
-            <div class="back-link">
-                <a href="/">← Back to all posts</a>
-            </div>
-        </article>
+         </article>
 
-        <section class="comments-section">
-            <h2 class="comments-title">Comments</h2>
-
-            <div class="comment-form">
-                <div id="formMessage"></div>
-                <form id="commentForm">
-                    <div class="form-group">
-                        <label for="author">Your name *</label>
-                        <input type="text" id="author" name="author" required placeholder="Your name">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email (not published) *</label>
-                        <input type="email" id="email" name="email" required placeholder="your@email.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="website">Website</label>
-                        <input type="text" id="website" name="website" placeholder="https://example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="text">Comment *</label>
-                        <textarea id="text" name="text" required placeholder="Your comment..."></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Post Comment</button>
-                    </div>
-                </form>
-            </div>
-
-            <div class="comments-list" id="commentsList">
-                <div class="no-comments">No comments yet. Be the first to comment!</div>
-            </div>
-        </section>
+        <!-- <section class="comments-section"> -->
+        <!--     <h2 class="comments-title">Comments</h2> -->
+        <!---->
+        <!--     <div class="comment-form"> -->
+        <!--         <div id="formMessage"></div> -->
+        <!--         <form id="commentForm"> -->
+        <!--             <div class="form-group"> -->
+        <!--                 <label for="author">Your name *</label> -->
+        <!--                 <input type="text" id="author" name="author" required placeholder="Your name"> -->
+        <!--             </div> -->
+        <!--             <div class="form-group"> -->
+        <!--                 <label for="email">Email (not published) *</label> -->
+        <!--                 <input type="email" id="email" name="email" required placeholder="your@email.com"> -->
+        <!--             </div> -->
+        <!--                   <div class="form-group"> -->
+        <!--                 <label for="text">Comment *</label> -->
+        <!--                 <textarea id="text" name="text" required placeholder="Your comment..."></textarea> -->
+        <!--             </div> -->
+        <!--             <div class="form-group"> -->
+        <!--                 <button type="submit">Post Comment</button> -->
+        <!--             </div> -->
+        <!--         </form> -->
+        <!--     </div> -->
+        <!---->
+            <!-- <div class="comments-list" id="commentsList"> -->
+            <!--     <div class="no-comments">No comments yet. Be the first to comment!</div> -->
+            <!-- </div> -->
+        <!-- </section> -->
     </div>
 
-    <script>
-        const POST_ID = 'on-simplicity';
-
-        // Load comments on page load
-        document.addEventListener('DOMContentLoaded', loadComments);
-
-        // Handle form submission
-        document.getElementById('commentForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const author = document.getElementById('author').value;
-            const email = document.getElementById('email').value;
-            const website = document.getElementById('website').value;
-            const text = document.getElementById('text').value;
-            const messageDiv = document.getElementById('formMessage');
-
-            try {
-                const response = await fetch('/api/comments', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        post_id: POST_ID,
-                        author,
-                        email,
-                        website: website || null,
-                        text
-                    })
-                });
-
-                if (response.ok) {
-                    messageDiv.innerHTML = '<div class="form-message success">Comment posted successfully!</div>';
-                    document.getElementById('commentForm').reset();
-                    setTimeout(() => {
-                        messageDiv.innerHTML = '';
-                        loadComments();
-                    }, 1500);
-                } else {
-                    const error = await response.text();
-                    messageDiv.innerHTML = `<div class="form-message error">Error: ${error}</div>`;
-                }
-            } catch (error) {
-                messageDiv.innerHTML = `<div class="form-message error">Error posting comment: ${error.message}</div>`;
-            }
-        });
-
-        // Load and display comments
-        async function loadComments() {
-            try {
-                const response = await fetch(`/api/comments?post=${POST_ID}`);
-                const comments = await response.json();
-                
-                const commentsList = document.getElementById('commentsList');
-                
-                if (comments.length === 0) {
-                    commentsList.innerHTML = '<div class="no-comments">No comments yet. Be the first to comment!</div>';
-                    return;
-                }
-
-                commentsList.innerHTML = comments.map(comment => `
-                    <div class="comment">
-                        <div class="comment-author">
-                            ${comment.website ? `<a href="${escapeHtml(comment.website)}" target="_blank">${escapeHtml(comment.author)}</a>` : escapeHtml(comment.author)}
-                        </div>
-                        <div class="comment-meta">${comment.time_formatted}</div>
-                        <div class="comment-text">${escapeHtml(comment.text).replace(/\n/g, '<br>')}</div>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Error loading comments:', error);
-            }
-        }
-
-        // Auto-refresh comments every 30 seconds
-        setInterval(loadComments, 30000);
-
-        // Helper function to escape HTML
-        function escapeHtml(text) {
-            const div = document.createElement('div');
-            div.textContent = text;
-            return div.innerHTML;
-        }
-    </script>
+    <!-- <script> -->
+    <!--     const POST_ID = 'on-simplicity'; -->
+    <!---->
+    <!--     // Load comments on page load -->
+    <!--     document.addEventListener('DOMContentLoaded', loadComments); -->
+    <!---->
+    <!--     // Handle form submission -->
+    <!--     document.getElementById('commentForm').addEventListener('submit', async (e) => { -->
+    <!--         e.preventDefault(); -->
+    <!---->
+    <!--         const author = document.getElementById('author').value; -->
+    <!--         const email = document.getElementById('email').value; -->
+    <!--         const website = document.getElementById('website').value; -->
+    <!--         const text = document.getElementById('text').value; -->
+    <!--         const messageDiv = document.getElementById('formMessage'); -->
+    <!---->
+    <!--         try { -->
+    <!--             const response = await fetch('/api/comments', { -->
+    <!--                 method: 'POST', -->
+    <!--                 headers: { -->
+    <!--                     'Content-Type': 'application/json', -->
+    <!--                 }, -->
+    <!--                 body: JSON.stringify({ -->
+    <!--                     post_id: POST_ID, -->
+    <!--                     author, -->
+    <!--                     email, -->
+    <!--                     website: website || null, -->
+    <!--                     text -->
+    <!--                 }) -->
+    <!--             }); -->
+    <!---->
+    <!--             if (response.ok) { -->
+    <!--                 messageDiv.innerHTML = '<div class="form-message success">Comment posted successfully!</div>'; -->
+    <!--                 document.getElementById('commentForm').reset(); -->
+    <!--                 setTimeout(() => { -->
+    <!--                     messageDiv.innerHTML = ''; -->
+    <!--                     loadComments(); -->
+    <!--                 }, 1500); -->
+    <!--             } else { -->
+    <!--                 const error = await response.text(); -->
+    <!--                 messageDiv.innerHTML = `<div class="form-message error">Error: ${error}</div>`; -->
+    <!--             } -->
+    <!--         } catch (error) { -->
+    <!--             messageDiv.innerHTML = `<div class="form-message error">Error posting comment: ${error.message}</div>`; -->
+    <!--         } -->
+    <!--     }); -->
+    <!---->
+    <!--     // Load and display comments -->
+    <!--     async function loadComments() { -->
+    <!--         try { -->
+    <!--             const response = await fetch(`/api/comments?post=${POST_ID}`); -->
+    <!--             const comments = await response.json(); -->
+    <!---->
+    <!--             const commentsList = document.getElementById('commentsList'); -->
+    <!---->
+    <!--             if (comments.length === 0) { -->
+    <!--                 commentsList.innerHTML = '<div class="no-comments">No comments yet. Be the first to comment!</div>'; -->
+    <!--                 return; -->
+    <!--             } -->
+    <!---->
+    <!--             commentsList.innerHTML = comments.map(comment => ` -->
+    <!--                 <div class="comment"> -->
+    <!--                     <div class="comment-author"> -->
+    <!--                         ${comment.website ? `<a href="${escapeHtml(comment.website)}" target="_blank">${escapeHtml(comment.author)}</a>` : escapeHtml(comment.author)} -->
+    <!--                     </div> -->
+    <!--                     <div class="comment-meta">${comment.time_formatted}</div> -->
+    <!--                     <div class="comment-text">${escapeHtml(comment.text).replace(/\n/g, '<br>')}</div> -->
+    <!--                 </div> -->
+    <!--             `).join(''); -->
+    <!--         } catch (error) { -->
+    <!--             console.error('Error loading comments:', error); -->
+    <!--         } -->
+    <!--     } -->
+    <!---->
+    <!--     // Auto-refresh comments every 30 seconds -->
+    <!--     setInterval(loadComments, 30000); -->
+    <!---->
+    <!--     // Helper function to escape HTML -->
+    <!--     function escapeHtml(text) { -->
+    <!--         const div = document.createElement('div'); -->
+    <!--         div.textContent = text; -->
+    <!--         return div.innerHTML; -->
+    <!--     } -->
+    <!-- </script> -->
 </body>
 </html>
