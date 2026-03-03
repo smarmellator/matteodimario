@@ -49,7 +49,7 @@ This serves files but won't process comments.
 ## File Structure
 
 ```
-matteodimario/
+smarmellator/
 ├── app.py                 # Backend API server
 ├── index.html            # Homepage with blog posts
 ├── posts/
